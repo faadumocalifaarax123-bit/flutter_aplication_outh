@@ -4,12 +4,13 @@ import uesrRouters from './routes/user_routes.js'
 import dotenv from "dotenv"
 import cors from "cors"
 
-app.use(cors());
 
 dotenv.config()
 connectDb()
 const app = express()
 app.use(express.json())
+
+app.use(cors());
 
 app.use("/api", uesrRouters)
 
