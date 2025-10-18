@@ -1,4 +1,5 @@
 import User from "../model/user.js"
+import generateToke from "../token/generatetoken.js";
 
 export const login = async (req, res) => {
   try {
@@ -46,7 +47,8 @@ export const createNewUser = async (req, res) => {
     res.status(201).json({
         success: true,
         data: savedUser,
-        message: "User created successfully"
+        message: "User created successfully",
+        token: generateToke()
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
